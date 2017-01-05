@@ -12,5 +12,10 @@
             "email": "office@florianknapp.de"
         }
     ],
-    "minimum-stability": "alpha"
+    "minimum-stability": "alpha",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
 }
