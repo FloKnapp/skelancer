@@ -1,0 +1,16 @@
+{
+    "name": "floknapp/skelancer",
+    "description": "A skeleton application for the faulancer framework",
+    "type": "project",
+    "require": {
+        "floknapp/faulancer": "^0.1.0@alpha"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Florian Knapp",
+            "email": "office@florianknapp.de"
+        }
+    ],
+    "minimum-stability": "alpha"
+}
