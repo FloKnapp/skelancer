@@ -2,9 +2,6 @@
     "name": "floknapp/skelancer",
     "description": "A skeleton application for the faulancer framework",
     "type": "project",
-    "require": {
-        "floknapp/faulancer": "^0.1.0@alpha"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -12,10 +9,20 @@
             "email": "office@florianknapp.de"
         }
     ],
-    "minimum-stability": "alpha",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
         }
-    }
+    },
+    "repositories":
+    [
+        {
+            "type": "path",
+            "url": "../faulancer"
+        }
+    ],
+    "require": {
+        "floknapp/faulancer": "@dev"
+    },
+    "minimum-stability": "dev"
 }

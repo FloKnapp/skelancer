@@ -1,0 +1,24 @@
+<?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
+<?php $v->extendsTemplate('/layout.phtml'); ?>
+
+<?php $v->block('content'); ?>
+
+<form action="/formrequest/contact" method="post">
+
+    <label for="firstname">Firstname:</label>
+    <input type="text" id="firstname" name="text/firstname" value="<?= $v->getFormData('text/firstname'); ?>">
+    <?= $v->translate($v->getFormError('text/firstname')); ?>
+    <br>
+    <label for="lastname">Lastname:</label>
+    <input type="text" id="lastname" name="text/lastname" value="<?= $v->getFormData('text/lastname'); ?>">
+    <?= $v->translate($v->getFormError('text/lastname')); ?>
+    <br>
+    <label for="email">Email address:</label>
+    <input type="text" id="email" name="email/email" value="<?= $v->getFormData('email/email'); ?>">
+    <?= $v->translate($v->getFormError('email/email')); ?>
+    <br>
+    <button>Send</button>
+
+</form>
+
+<?php $v->block(); ?>

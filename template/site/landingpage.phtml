@@ -1,0 +1,24 @@
+<?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
+<?php $v->extendsTemplate('/layout.phtml'); ?>
+
+<?php $v->block('title'); ?>
+Landingpage
+<?php $v->block(); ?>
+
+<?php $v->block('content'); ?>
+
+<h1>The main content</h1>
+
+This is the main landingpage, which will see everyone on his first visit. Due to the flexibility you can handle and
+design each site completely independent. You can even set the page title through this template.
+
+<?php $v->block(); ?>
+
+<?php $v->block('aside'); ?>
+
+<h2>The aside content</h2>
+
+This is the side content which can be filled with various elements, like login boxes,
+newsflash boxes or the not unlikely ad container.
+
+<?php $v->block(); ?>

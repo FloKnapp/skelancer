@@ -12,19 +12,44 @@ class WebsiteController extends Controller
 {
 
     /**
-     * @Route(path="/", method="GET", name="Homepage")
+     * @Route (path="/", method="GET", name="Homepage")
+     * @return string
      */
     public function indexAction()
     {
-        return $this->render('/content.phtml');
+        $this->setDefaultAssets();
+
+        return $this->render('/site/landingpage.phtml');
     }
 
     /**
-     * @Route(path="/test", method="GET", name="Homepage")
+     * @Route (path="/test", method="GET", name="Homepage")
+     * @return string
      */
     public function testAction()
     {
-        echo "Hallo";
+        $this->setDefaultAssets();
+
+        return $this->render('/site/test.phtml');
+    }
+
+    /**
+     * @Route (path="/contact", method="GET", name="Contact")
+     * @return string
+     */
+    public function contactAction()
+    {
+        $this->setDefaultAssets();
+
+        return $this->render('/site/contact/contact.phtml');
+    }
+
+    /**
+     * @return void
+     */
+    private function setDefaultAssets()
+    {
+        $this->getView()->addStylesheet('/css/main.css');
     }
 
 }
