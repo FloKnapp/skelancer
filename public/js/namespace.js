@@ -9,7 +9,7 @@
  *|   'use strict';
  *|
  *|   // The namespace
- *|   var ns = faulancer.app.myscript;
+ *|   var ns = faulancer.namespace('app.myscript');
  *|
  *|   // Private scope
  *|   var _private = {

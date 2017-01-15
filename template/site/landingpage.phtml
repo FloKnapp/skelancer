@@ -12,6 +12,22 @@ Landingpage
 This is the main landingpage, which will see everyone on his first visit. Due to the flexibility you can handle and
 design each site completely independent. You can even set the page title through this template.
 
+<hr>
+
+<h3>Articles (<?= count($recentArticles); ?>)</h3>
+
+<?php /** @var \stdClass $recentArticles */ ?>
+<?php foreach ($recentArticles as $article): ?>
+
+    <div class="article-short">
+        <?php
+            echo '<h4>' . $article->title . '<span class="article-date-created">' . (new \DateTime($article->created))->format('d.m.Y, H:i') . '</span></h4>';
+            echo '<p>' . $article->text . '</p>';
+        ?>
+    </div>
+
+<?php endforeach; ?>
+
 <?php $v->block(); ?>
 
 <?php $v->block('aside'); ?>
@@ -20,5 +36,21 @@ design each site completely independent. You can even set the page title through
 
 This is the side content which can be filled with various elements, like login boxes,
 newsflash boxes or the not unlikely ad container.
+
+<hr>
+
+<h3>Most read articles</h3>
+
+<?php /** @var \stdClass $recentArticles */ ?>
+<?php foreach ($mostReadArticles as $article): ?>
+
+    <div class="article-short">
+        <?php
+            echo '<h4>' . $article->title . '<span class="article-date-created">' . (new \DateTime($article->created))->format('d.m.Y, H:i') . '</span></h4>';
+            echo '<p>' . $article->text . '</p>';
+        ?>
+    </div>
+
+<?php endforeach; ?>
 
 <?php $v->block(); ?>

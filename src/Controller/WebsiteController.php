@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\ArticleEntity;
+use App\Service\ArticleService;
 use Faulancer\Controller\Controller;
 
 /**
@@ -12,34 +14,44 @@ class WebsiteController extends Controller
 {
 
     /**
-     * @Route (path="/", method="GET", name="Homepage")
      * @return string
      */
     public function indexAction()
     {
         $this->setDefaultAssets();
 
-        return $this->render('/site/landingpage.phtml');
+        /** @var ArticleService $articleService */
+        $articleService = $this->getServiceLocator()->get(ArticleService::class);
+
+
+        $recentArticles   = $articleService->getLastRecentArticles();
+        $mostReadArticles = $articleService->getMostReadArticles();
+
+        return $this->render('/site/landingpage.phtml', [
+            'recentArticles' => $recentArticles, 'mostReadArticles' => $mostReadArticles
+        ]);
     }
 
     /**
-     * @Route (path="/test", method="GET", name="Homepage")
      * @return string
      */
-    public function testAction()
+    public function testAction($var)
     {
         $this->setDefaultAssets();
+
+        echo $var;
 
         return $this->render('/site/test.phtml');
     }
 
     /**
-     * @Route (path="/contact", method="GET", name="Contact")
      * @return string
      */
     public function contactAction()
     {
         $this->setDefaultAssets();
+        $this->getView()->addScript('/js/namespace.js');
+        $this->getView()->addScript('/js/forms.js');
 
         return $this->render('/site/contact/contact.phtml');
     }

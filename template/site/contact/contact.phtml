@@ -1,22 +1,83 @@
 <?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
-<?php $v->extendsTemplate('/layout.phtml'); ?>
+<?php $v->extendsTemplate('/layout_full.phtml'); ?>
 
 <?php $v->block('content'); ?>
 
+This is a dummy form which can handle invalid form data. This layout is by the way a full width layout, which means
+there is no side content. There you can see how easy the template inheritance system works.
+
+<ul>
+    <li>The field 'firstname' must not be empty and have to contain a string value.</li>
+    <li>The second field 'lastname' must not be empty and have to contain a string value.</li>
+    <li>The third field 'email address' must not be empty and have to contain a valid email pattern.</li>
+</ul>
+
+<hr>
+
 <form action="/formrequest/contact" method="post">
 
-    <label for="firstname">Firstname:</label>
-    <input type="text" id="firstname" name="text/firstname" value="<?= $v->getFormData('text/firstname'); ?>">
-    <?= $v->translate($v->getFormError('text/firstname')); ?>
-    <br>
-    <label for="lastname">Lastname:</label>
-    <input type="text" id="lastname" name="text/lastname" value="<?= $v->getFormData('text/lastname'); ?>">
-    <?= $v->translate($v->getFormError('text/lastname')); ?>
-    <br>
-    <label for="email">Email address:</label>
-    <input type="text" id="email" name="email/email" value="<?= $v->getFormData('email/email'); ?>">
-    <?= $v->translate($v->getFormError('email/email')); ?>
-    <br>
+    <div class="container">
+        <div class="row">
+            <div class="cell">
+                <label for="firstname">Firstname:</label>
+            </div>
+            <div class="cell">
+
+                <input
+                        type="text"
+                        id="firstname"
+                        name="text/firstname"
+                        <?= $v->hasFormError('text/firstname') ? 'class="field-error"' : ''; ?>
+                        value="<?= $v->getFormData('text/firstname'); ?>"
+                >
+
+            </div>
+            <div class="cell error-msg">
+                <?= $v->getFormError('text/firstname'); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <label for="lastname">Lastname:</label>
+            </div>
+            <div class="cell">
+
+                <input
+                        type="text"
+                        id="lastname"
+                        name="text/lastname"
+                        <?= $v->hasFormError('text/lastname') ? 'class="field-error"' : ''; ?>
+                        value="<?= $v->getFormData('text/lastname'); ?>"
+                >
+
+            </div>
+            <div class="cell error-msg">
+                <?= $v->getFormError('text/lastname'); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <label for="email">Email address:</label>
+            </div>
+            <div class="cell">
+
+                <input
+                        type="text"
+                        id="email"
+                        name="email/email"
+                        <?= $v->hasFormError('email/email') ? 'class="field-error"' : ''; ?>
+                        value="<?= $v->getFormData('email/email'); ?>"
+                >
+
+            </div>
+            <div class="cell error-msg">
+                <?= $v->getFormError('email/email'); ?>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
     <button>Send</button>
 
 </form>

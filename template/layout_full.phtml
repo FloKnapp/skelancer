@@ -4,7 +4,7 @@
 <head>
     <title><?= $v->renderBlock('title', 'Default title'); ?></title>
     <meta charset="utf-8">
-    <?php echo  $v->getAssets('css'); ?>
+    <?=  $v->getAssets('css'); ?>
 </head>
 <body>
 
@@ -14,20 +14,16 @@
 
         <menu id="menuContainer">
             <ul>
-                <li><a href="<?= $v->route('homepage'); ?>">Homepage</a></li>
-                <li><a href="<?= $v->route('contact'); ?>">Contact</a></li>
+                <li><a href="/">Homepage</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <div class="clear-both"></div>
         </menu>
 
         <section id="mainContent">
-            <article>
+            <article class="width-full">
                 <?= $v->renderBlock('content'); ?>
             </article>
-
-            <aside>
-                <?= $v->renderBlock('aside'); ?>
-            </aside>
             <div class="clear-both"></div>
         </section>
 
@@ -50,6 +46,8 @@
         </footer>
 
     </section>
+
+    <?= $v->getAssets('js'); ?>
 
 </body>
 </html>
