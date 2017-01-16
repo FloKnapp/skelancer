@@ -20,7 +20,7 @@ $config = [
     'applicationRoot' => __DIR__ . '/../src',
     'translationFile' => __DIR__ . '/../config/translation.php',
     'routeFile'       => __DIR__ . '/../config/routes.php',
-    'db' => $dbConf
+    'db'              => $dbConf
 ];
 
 $request = new \Faulancer\Http\Request();

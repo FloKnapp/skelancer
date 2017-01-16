@@ -18,15 +18,10 @@
         {
             "type": "path",
             "url": "../faulancer"
-        },
-        {
-            "type": "path",
-            "url": "../../tflori/orm"
         }
     ],
     "require": {
-        "floknapp/faulancer": "dev-master",
-        "tflori/orm": "dev-feature-console"
+        "floknapp/faulancer": "dev-feature-optimization"
     },
     "minimum-stability": "alpha"
 }
