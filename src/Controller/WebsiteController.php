@@ -57,6 +57,24 @@ class WebsiteController extends Controller
     }
 
     /**
+     * @param $id
+     * @return string
+     */
+    public function articleAction($id)
+    {
+        $this->setDefaultAssets();
+
+        /** @var ArticleEntity $article */
+        $article = $this->getDb()->fetch(ArticleEntity::class, $id);
+
+        // Set read count
+        $article->read = $article->read + 1;
+        $article->save();
+
+        return $this->render('/site/article.phtml', ['article' => $article]);
+    }
+
+    /**
      * @return void
      */
     private function setDefaultAssets()

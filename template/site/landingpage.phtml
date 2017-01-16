@@ -19,12 +19,16 @@ design each site completely independent. You can even set the page title through
 <?php /** @var \stdClass $recentArticles */ ?>
 <?php foreach ($recentArticles as $article): ?>
 
+
     <div class="article-short">
+        <a href="<?= $v->route('article', ['id' => $article->id]); ?>">
         <?php
             echo '<h4>' . $article->title . '<span class="article-date-created">' . (new \DateTime($article->created))->format('d.m.Y, H:i') . '</span></h4>';
             echo '<p>' . $article->text . '</p>';
         ?>
+        </a>
     </div>
+
 
 <?php endforeach; ?>
 

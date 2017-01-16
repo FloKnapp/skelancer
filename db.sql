@@ -31,6 +31,7 @@ CREATE TABLE `article` (
   `author` int(11) NOT NULL,
   `title` text NOT NULL,
   `text` text NOT NULL,
+  `read` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +42,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (1,'2017-01-13 21:52:49','2017-01-13 21:54:21',1,'First Article','First article text contents'),(2,'2017-01-13 21:52:49','2017-01-13 22:15:53',1,'Second Article','Second article text contents'),(3,'2017-01-13 22:23:18','2017-01-13 22:23:38',1,'Third Article','Third article text contents');
+INSERT INTO `article` VALUES (1,'2017-01-13 21:52:49','2017-01-16 01:28:19',1,'First Article','First article text contents',7),(2,'2017-01-13 21:52:49','2017-01-16 01:28:21',1,'Second Article','Second article text contents',3),(3,'2017-01-13 22:23:18','2017-01-16 01:29:05',1,'Third Article','Third article text contents',10);
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -72,4 +73,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-16  1:00:15
+-- Dump completed on 2017-01-16  1:29:35

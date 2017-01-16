@@ -19,6 +19,12 @@ return [
         'method'     => 'GET',
         'action'     => 'test',
         'controller' => \App\Controller\WebsiteController::class
+    ],
+    'article' => [
+        'path'       => '/article/(\d+)',
+        'method'     => 'GET',
+        'action'     => 'article',
+        'controller' => \App\Controller\WebsiteController::class
     ]
 
 ];

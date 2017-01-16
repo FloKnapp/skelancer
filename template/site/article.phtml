@@ -1,0 +1,14 @@
+<?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
+<?php $v->extendsTemplate('/layout.phtml'); ?>
+
+<?php $v->block('title'); ?>
+<?= $article->title; ?>
+<?php $v->block(); ?>
+
+<?php $v->block('content'); ?>
+
+<h1><?= $article->title; ?></h1>
+
+<p><?= $article->text; ?></p>
+
+<?php $v->block(); ?>

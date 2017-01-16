@@ -54,7 +54,7 @@ class ArticleService implements ServiceInterface
     {
         return $this->orm
             ->fetch(ArticleEntity::class)
-            ->orderBy('created', 'desc')
+            ->orderBy('read', 'desc')
             ->all($count);
     }
 
