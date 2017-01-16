@@ -14,15 +14,19 @@
             "App\\": "src/"
         }
     },
-    "repositories":
-    [
+    "repositories": [
         {
             "type": "path",
             "url": "../faulancer"
+        },
+        {
+            "type": "path",
+            "url": "../../tflori/orm"
         }
     ],
     "require": {
-        "floknapp/faulancer": "@dev"
+        "floknapp/faulancer": "dev-master",
+        "tflori/orm": "dev-feature-console"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "alpha"
 }
