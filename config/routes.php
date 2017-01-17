@@ -25,6 +25,18 @@ return [
         'method'     => 'GET',
         'action'     => 'article',
         'controller' => \App\Controller\WebsiteController::class
-    ]
+    ],
+    'categories' => [
+        'path'       => '/categories',
+        'method'     => 'GET',
+        'action'     => 'categories',
+        'controller' => \App\Controller\WebsiteController::class
+    ],
+    'category' => [
+    'path'       => '/category/(\d+)',
+    'method'     => 'GET',
+    'action'     => 'category',
+    'controller' => \App\Controller\WebsiteController::class
+]
 
 ];

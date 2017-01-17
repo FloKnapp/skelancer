@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ArticleEntity;
+use App\Entity\CategoryEntity;
 use App\Service\ArticleService;
 use Faulancer\Controller\Controller;
 
@@ -23,25 +24,12 @@ class WebsiteController extends Controller
         /** @var ArticleService $articleService */
         $articleService = $this->getServiceLocator()->get(ArticleService::class);
 
-
         $recentArticles   = $articleService->getLastRecentArticles();
         $mostReadArticles = $articleService->getMostReadArticles();
 
         return $this->render('/site/landingpage.phtml', [
             'recentArticles' => $recentArticles, 'mostReadArticles' => $mostReadArticles
         ]);
-    }
-
-    /**
-     * @return string
-     */
-    public function testAction($var)
-    {
-        $this->setDefaultAssets();
-
-        echo $var;
-
-        return $this->render('/site/test.phtml');
     }
 
     /**
@@ -64,7 +52,7 @@ class WebsiteController extends Controller
     {
         $this->setDefaultAssets();
 
-        /** @var ArticleEntity $article */
+        /** @type ArticleEntity $article */
         $article = $this->getDb()->fetch(ArticleEntity::class, $id);
 
         // Set read count
@@ -72,6 +60,32 @@ class WebsiteController extends Controller
         $article->save();
 
         return $this->render('/site/article.phtml', ['article' => $article]);
+    }
+
+    /**
+     * @return string
+     */
+    public function categoriesAction()
+    {
+        $this->setDefaultAssets();
+
+        $categories = $this->getDb()->fetch(CategoryEntity::class)->all();
+
+        return $this->render('/site/categories.phtml', ['categories' => $categories]);
+    }
+
+    /**
+     * @param integer $id
+     * @return string
+     */
+    public function categoryAction($id)
+    {
+        $this->setDefaultAssets();
+
+        $category = $this->getDb()->fetch(CategoryEntity::class, $id);
+        $articles = $this->getDb()->fetch(ArticleEntity::class)->where('categoryId', '=', $id)->all();
+
+        return $this->render('/site/category.phtml', ['articles' => $articles, 'category' => $category]);
     }
 
     /**
