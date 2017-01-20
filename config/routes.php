@@ -33,10 +33,10 @@ return [
         'controller' => \App\Controller\WebsiteController::class
     ],
     'category' => [
-    'path'       => '/category/(\d+)',
-    'method'     => 'GET',
-    'action'     => 'category',
-    'controller' => \App\Controller\WebsiteController::class
-]
+        'path'       => '/category/(\d+)',
+        'method'     => 'GET',
+        'action'     => 'category',
+        'controller' => \App\Controller\WebsiteController::class
+    ]
 
 ];
