@@ -14,15 +14,14 @@
             "App\\": "src/"
         }
     },
-    "repositories":
-    [
+    "repositories": [
         {
             "type": "path",
             "url": "../faulancer"
         }
     ],
     "require": {
-        "floknapp/faulancer": "@dev"
+        "floknapp/faulancer": "dev-feature-optimization"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "alpha"
 }
