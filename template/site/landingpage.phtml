@@ -1,11 +1,10 @@
-<?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
-<?php $v->extendsTemplate('/layout.phtml'); ?>
+<?php $this->parentTemplate('/layout.phtml'); ?>
 
-<?php $v->block('title'); ?>
+<?php $this->block('title'); ?>
 Landingpage
-<?php $v->block(); ?>
+<?php $this->endBlock('title'); ?>
 
-<?php $v->block('content'); ?>
+<?php $this->block('content'); ?>
 
 <h1>The main content</h1>
 
@@ -14,14 +13,14 @@ design each site completely independent. You can even set the page title through
 
 <hr>
 
+<?php /** @var \stdClass|countable $recentArticles */ ?>
 <h3>Articles (<?= count($recentArticles); ?>)</h3>
 
-<?php /** @var \stdClass $recentArticles */ ?>
 <?php foreach ($recentArticles as $article): ?>
 
 
     <div class="article-short">
-        <a href="<?= $v->route('article', ['id' => $article->id]); ?>">
+        <a href="<?= $this->route('article', ['id' => $article->id]); ?>">
         <?php
             echo '<h4>' . $article->title . '<span class="article-date-created">' . (new \DateTime($article->created))->format('d.m.Y, H:i') . '</span></h4>';
             echo '<p>' . $article->text . '</p>';
@@ -32,9 +31,9 @@ design each site completely independent. You can even set the page title through
 
 <?php endforeach; ?>
 
-<?php $v->block(); ?>
+<?php $this->endBlock('content'); ?>
 
-<?php $v->block('aside'); ?>
+<?php $this->block('aside'); ?>
 
 <h2>The aside content</h2>
 
@@ -45,7 +44,7 @@ newsflash boxes or the not unlikely ad container.
 
 <h3>Most read articles</h3>
 
-<?php /** @var \stdClass $recentArticles */ ?>
+<?php /** @var \stdClass $mostReadArticles */ ?>
 <?php foreach ($mostReadArticles as $article): ?>
 
     <div class="article-short">
@@ -57,4 +56,4 @@ newsflash boxes or the not unlikely ad container.
 
 <?php endforeach; ?>
 
-<?php $v->block(); ?>
+<?php $this->endBlock('aside'); ?>

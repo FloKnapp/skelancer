@@ -1,15 +1,14 @@
 <?php
 /**
- * @var \Faulancer\View\GenericViewHelper $v
  * @var \App\Entity\ArticleEntity $article
  */ ?>
-<?php $v->extendsTemplate('/layout.phtml'); ?>
+<?php $this->parentTemplate('/layout.phtml'); ?>
 
-<?php $v->block('title'); ?>
+<?php $this->block('title'); ?>
 <?= $article->title; ?>
-<?php $v->block(); ?>
+<?php $this->endBlock('title'); ?>
 
-<?php $v->block('content'); ?>
+<?php $this->block('content'); ?>
 
 <h1><?= $article->title; ?></h1>
 <h5>Author: <?= $article->author->firstname . ' ' . $article->author->lastname; ?></h5>
@@ -18,4 +17,4 @@
 
 <p><?= $article->text; ?></p>
 
-<?php $v->block(); ?>
+<?php $this->endBlock('content'); ?>

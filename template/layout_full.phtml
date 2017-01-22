@@ -1,10 +1,9 @@
-<?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
 <!DOCTYPE html>
 <html lang="de-DE">
 <head>
-    <title><?= $v->renderBlock('title', 'Default title'); ?></title>
+    <title><?= $this->renderBlock('title', 'Default title'); ?></title>
     <meta charset="utf-8">
-    <?=  $v->getAssets('css'); ?>
+    <?=  $this->assetList('css'); ?>
 </head>
 <body>
 
@@ -12,18 +11,11 @@
 
         <?php require_once 'header.phtml'; ?>
 
-        <menu id="menuContainer">
-            <ul>
-                <li><a href="<?= $v->route('homepage'); ?>">Homepage</a></li>
-                <li><a href="<?= $v->route('categories'); ?>">Categories</a></li>
-                <li><a href="<?= $v->route('contact'); ?>">Contact</a></li>
-            </ul>
-            <div class="clear-both"></div>
-        </menu>
+        <?php require_once 'menu.phtml'; ?>
 
         <section id="mainContent">
             <article class="width-full">
-                <?= $v->renderBlock('content'); ?>
+                <?= $this->renderBlock('content'); ?>
             </article>
             <div class="clear-both"></div>
         </section>
@@ -48,7 +40,7 @@
 
     </section>
 
-    <?= $v->getAssets('js'); ?>
+    <?= $this->assetList('js'); ?>
 
 </body>
 </html>

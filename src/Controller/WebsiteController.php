@@ -38,7 +38,6 @@ class WebsiteController extends Controller
     public function contactAction()
     {
         $this->setDefaultAssets();
-        $this->getView()->addScript('/js/namespace.js');
         $this->getView()->addScript('/js/forms.js');
 
         return $this->render('/site/contact/contact.phtml');
@@ -93,7 +92,9 @@ class WebsiteController extends Controller
      */
     private function setDefaultAssets()
     {
+        $this->getView()->addScript('/js/namespace.js');
         $this->getView()->addStylesheet('/css/main.css');
+
     }
 
 }

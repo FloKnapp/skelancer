@@ -1,7 +1,12 @@
-<?php /** @var \Faulancer\View\GenericViewHelper $v */ ?>
-<?php $v->extendsTemplate('/layout_full.phtml'); ?>
+<?php $this->parentTemplate('/layout_full.phtml'); ?>
 
-<?php $v->block('content'); ?>
+<?php $this->block('title'); ?>
+
+Contact form
+
+<?php $this->endBlock('title'); ?>
+
+<?php $this->block('content'); ?>
 
 This is a dummy form which can handle invalid form data. This layout is by the way a full width layout, which means
 there is no side content. There you can see how easy the template inheritance system works.
@@ -27,13 +32,13 @@ there is no side content. There you can see how easy the template inheritance sy
                         type="text"
                         id="firstname"
                         name="text/firstname"
-                        <?= $v->hasFormError('text/firstname') ? 'class="field-error"' : ''; ?>
-                        value="<?= $v->getFormData('text/firstname'); ?>"
+                        <?= $this->formError('text/firstname')->has() ? 'class="field-error"' : ''; ?>
+                        value="<?= $this->formData('text/firstname'); ?>"
                 >
 
             </div>
             <div class="cell error-msg">
-                <?= $v->getFormError('text/firstname'); ?>
+                <?= $this->formError('text/firstname')->get(); ?>
             </div>
         </div>
         <div class="row">
@@ -46,13 +51,13 @@ there is no side content. There you can see how easy the template inheritance sy
                         type="text"
                         id="lastname"
                         name="text/lastname"
-                        <?= $v->hasFormError('text/lastname') ? 'class="field-error"' : ''; ?>
-                        value="<?= $v->getFormData('text/lastname'); ?>"
+                        <?= $this->formError('text/lastname')->has() ? 'class="field-error"' : ''; ?>
+                        value="<?= $this->formData('text/lastname'); ?>"
                 >
 
             </div>
             <div class="cell error-msg">
-                <?= $v->getFormError('text/lastname'); ?>
+                <?= $this->formError('text/lastname')->get(); ?>
             </div>
         </div>
         <div class="row">
@@ -65,13 +70,13 @@ there is no side content. There you can see how easy the template inheritance sy
                         type="text"
                         id="email"
                         name="email/email"
-                        <?= $v->hasFormError('email/email') ? 'class="field-error"' : ''; ?>
-                        value="<?= $v->getFormData('email/email'); ?>"
+                        <?= $this->formError('email/email')->has() ? 'class="field-error"' : ''; ?>
+                        value="<?= $this->formData('email/email'); ?>"
                 >
 
             </div>
             <div class="cell error-msg">
-                <?= $v->getFormError('email/email'); ?>
+                <?= $this->formError('email/email')->get(); ?>
             </div>
         </div>
     </div>
@@ -82,4 +87,4 @@ there is no side content. There you can see how easy the template inheritance sy
 
 </form>
 
-<?php $v->block(); ?>
+<?php $this->endBlock('content'); ?>

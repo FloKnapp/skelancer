@@ -1,23 +1,22 @@
 <?php
 /**
- * @var \Faulancer\View\GenericViewHelper $v
  * @var \App\Entity\CategoryEntity[] $categories
  * @var \App\Entity\CategoryEntity   $category
  */ ?>
-<?php $v->extendsTemplate('/layout.phtml'); ?>
+<?php $this->parentTemplate('/layout.phtml'); ?>
 
-<?php $v->block('title'); ?>
+<?php $this->block('title'); ?>
+Categories
+<?php $this->endBlock('title'); ?>
 
-<?php $v->block(); ?>
-
-<?php $v->block('content'); ?>
+<?php $this->block('content'); ?>
 
     <h1>Categories</h1>
 
     <?php foreach ($categories as $category): ?>
 
-        <a href="<?= $v->route('category', [$category->id]) ?>"><?= $category->name; ?></a><br />
+        <a href="<?= $this->route('category', [$category->id]) ?>"><?= $category->name; ?></a><br />
 
     <?php endforeach; ?>
 
-<?php $v->block(); ?>
+<?php $this->endBlock('content'); ?>
