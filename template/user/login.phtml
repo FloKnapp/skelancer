@@ -1,0 +1,54 @@
+<?php $this->parentTemplate('/layout_full.phtml'); ?>
+
+<?php $this->block('title'); ?>
+User login
+<?php $this->endBlock('title'); ?>
+
+<?php $this->block('content'); ?>
+
+<h1>Login</h1>
+
+<form action="/formrequest/userLogin" method="post">
+
+    <div class="container">
+        <div class="row">
+            <div class="cell">
+                <label for="login">Login</label>
+            </div>
+            <div class="cell">
+                <input
+                    type="text"
+                    id="login"
+                    name="text/login" <?= $this->formError('text/login')->has() ? 'class="field-error"' : '' ?>
+                    value="<?= $this->formData('text/login'); ?>"
+                >
+            </div>
+            <div class="cell">
+                <?= $this->formError('text/login')->get(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <label for="password">Password</label>
+            </div>
+            <div class="cell">
+                <input
+                    type="text"
+                    id="password"
+                    name="text/password" <?= $this->formError('text/password')->has() ? 'class="field-error"' : '' ?>
+                    value="<?= $this->formData('text/password'); ?>"
+                >
+            </div>
+            <div class="cell">
+                <?= $this->formError('text/password')->get(); ?>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <button>Login</button>
+
+</form>
+
+<?php $this->endBlock('content'); ?>

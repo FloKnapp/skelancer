@@ -6,6 +6,7 @@ use App\Entity\ArticleEntity;
 use App\Entity\CategoryEntity;
 use App\Service\ArticleService;
 use Faulancer\Controller\Controller;
+use Faulancer\Session\SessionManager;
 
 /**
  * Class WebsiteController
@@ -19,6 +20,8 @@ class WebsiteController extends Controller
      */
     public function indexAction()
     {
+        $this->requireAuth(['author', 'admin']);
+
         $this->setDefaultAssets();
 
         /** @var ArticleService $articleService */
@@ -87,12 +90,29 @@ class WebsiteController extends Controller
         return $this->render('/site/category.phtml', ['articles' => $articles, 'category' => $category]);
     }
 
+    public function userLoginAction()
+    {
+        $this->setDefaultAssets();
+
+        return $this->render('/user/login.phtml');
+    }
+
+    public function userLogoutAction()
+    {
+        $this->setDefaultAssets();
+
+        $this->getSessionManager()->delete('user');
+
+        $this->redirect('/');
+    }
+
     /**
      * @return void
      */
     private function setDefaultAssets()
     {
         $this->getView()->addScript('/js/namespace.js');
+        $this->getView()->addScript('/js/slide.js');
         $this->getView()->addStylesheet('/css/main.css');
 
     }

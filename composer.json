@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "floknapp/faulancer": "dev-master"
+        "floknapp/faulancer": "dev-feature-auth"
     },
     "minimum-stability": "alpha"
 }

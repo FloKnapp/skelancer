@@ -1,8 +1,16 @@
 <menu id="menuContainer">
+    <div class="mainWrapper">
     <ul>
         <li><a href="<?= $this->route('homepage'); ?>">Homepage</a></li>
         <li><a href="<?= $this->route('categories'); ?>">Categories</a></li>
         <li><a href="<?= $this->route('contact'); ?>">Contact</a></li>
     </ul>
+    <?php if ($this->user()->isLoggedIn()): ?>
+        <div class="right">
+            <a href="<?= $this->route('userLogout'); ?>">Logout (<?= $this->user()->get()->login; ?>)</a>
+        </div>
+    <?php endif; ?>
+
     <div class="clear-both"></div>
+    </div>
 </menu>
