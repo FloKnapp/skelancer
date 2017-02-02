@@ -10,6 +10,8 @@ User login
 
 <form action="/formrequest/userLogin" method="post">
 
+    <?= $this->flashBag()->get('loginError'); ?>
+
     <div class="container">
         <div class="row">
             <div class="cell">

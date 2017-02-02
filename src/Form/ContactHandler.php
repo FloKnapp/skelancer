@@ -14,18 +14,13 @@ class ContactHandler extends AbstractFormHandler
 
     public function run()
     {
-        $uri = new Uri();
-
-        $this->setSuccessUrl('/contact/confirm');
-        $this->setErrorUrl('/contact');
-
         if (!$this->getForm()->isValid()) {
-            $uri->redirect($this->getErrorUrl());
+            $this->redirect('/contact');
         }
 
         // Logic to save to a database i.e...
 
-        $uri->redirect($this->getSuccessUrl());
+        $this->redirect('/contact/confirm');
     }
 
 }

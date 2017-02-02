@@ -78,15 +78,13 @@
 
             domElems.images[0].style.display = 'block';
             domElems.images[0].style.backgroundImage = 'url(' + domElems.images[0].dataset.src + ')';
-
-            var image = new Image();
-            image.src = domElems.images[0].dataset.src;
-            image.onload = function() {
-                domElems.images[0].classList.add('fadeIn');
-            };
+            domElems.images[0].style.transitionDuration = '0s';
+            domElems.images[0].style.opacity = 1;
 
             fields.counter = 1;
             handler.slideImages();
+
+            domElems.images[0].style.transitionDuration = '5s';
 
         }
 

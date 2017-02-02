@@ -8,7 +8,6 @@ namespace App\Form;
 
 use App\Entity\UserEntity;
 use Faulancer\Form\AbstractFormHandler;
-use Faulancer\Http\Uri;
 use Faulancer\Service\Authenticator;
 
 /**
@@ -20,7 +19,7 @@ class UserLoginHandler extends AbstractFormHandler
     public function run()
     {
         if (!$this->getForm()->isValid()) {
-            (new Uri())->redirect('/user/login');
+            $this->redirect('/user/login');
         }
 
         $user           = new UserEntity();
@@ -30,7 +29,11 @@ class UserLoginHandler extends AbstractFormHandler
         /** @var Authenticator $authenticator */
         $authenticator = $this->getServiceLocator()->get(Authenticator::class);
         $authenticator->redirectAfterAuthentication('/');
-        $authenticator->loginUser($user);
+        $loggedIn = $authenticator->loginUser($user);
+
+        if ($loggedIn === false) {
+            $this->redirect('/user/login');
+        }
 
 
     }
