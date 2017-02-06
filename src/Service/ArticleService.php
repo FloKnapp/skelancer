@@ -8,7 +8,7 @@ namespace App\Service;
 
 use App\Entity\ArticleEntity;
 use Faulancer\Service\Config;
-use Faulancer\Service\ORM;
+use Faulancer\Service\DbService;
 use Faulancer\ServiceLocator\ServiceInterface;
 
 /**
@@ -17,20 +17,20 @@ use Faulancer\ServiceLocator\ServiceInterface;
 class ArticleService implements ServiceInterface
 {
 
-    /** @var ORM */
-    protected $orm;
+    /** @var DbService */
+    protected $db;
 
     /** @var  */
     protected $config;
 
     /**
      * ArticleService constructor.
-     * @param ORM    $orm
-     * @param Config $config
+     * @param DbService $orm
+     * @param Config    $config
      */
-    public function __construct(ORM $orm, Config $config)
+    public function __construct(DbService $orm, Config $config)
     {
-        $this->orm    = $orm;
+        $this->db     = $orm;
         $this->config = $config;
     }
 
@@ -40,7 +40,7 @@ class ArticleService implements ServiceInterface
      */
     public function getLastRecentArticles($count = 10)
     {
-        return $this->orm
+        return $this->db
             ->fetch(ArticleEntity::class)
             ->orderBy('created', 'desc')
             ->all($count);
@@ -52,7 +52,7 @@ class ArticleService implements ServiceInterface
      */
     public function getMostReadArticles($count = 5)
     {
-        return $this->orm
+        return $this->db
             ->fetch(ArticleEntity::class)
             ->orderBy('read', 'desc')
             ->all($count);
