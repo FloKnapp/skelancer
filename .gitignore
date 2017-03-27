@@ -1,6 +1,7 @@
 /cache/*
 /vendor/
 /.idea/*
+/config/environment.conf.php
 
 /composer.phar
 /composer.lock

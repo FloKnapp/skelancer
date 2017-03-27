@@ -49,6 +49,12 @@ return [
         'method'     => 'GET',
         'action'     => 'userLogout',
         'controller' => \App\Controller\WebsiteController::class
+    ],
+    'userRegister' => [
+        'path'       => '/user/register',
+        'method'     => 'GET',
+        'action'     => 'userLogout',
+        'controller' => \App\Controller\WebsiteController::class
     ]
 
 ];
