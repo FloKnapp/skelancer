@@ -20,8 +20,6 @@ class WebsiteController extends Controller
      */
     public function indexAction()
     {
-        $this->requireAuth(['author', 'admin']);
-
         $this->setDefaultAssets();
 
         /** @var ArticleService $articleService */

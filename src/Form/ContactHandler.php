@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Faulancer\Form\AbstractFormHandler;
 use Faulancer\Http\Uri;
+use Faulancer\Session\SessionManager;
 
 /**
  * Class ContactHandler

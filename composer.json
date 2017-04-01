@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "floknapp/faulancer": "dev-feature-auth"
+        "floknapp/faulancer": "dev-feature-api"
     },
     "minimum-stability": "alpha"
 }

@@ -8,7 +8,7 @@ namespace App\Service;
 
 use App\Entity\ArticleEntity;
 use Faulancer\Service\Config;
-use Faulancer\Service\ORM;
+use Faulancer\Service\DbService;
 use Faulancer\ServiceLocator\ServiceInterface;
 
 /**
@@ -17,18 +17,18 @@ use Faulancer\ServiceLocator\ServiceInterface;
 class ArticleService implements ServiceInterface
 {
 
-    /** @var ORM */
+    /** @var DbService */
     protected $orm;
 
-    /** @var  */
+    /** @var Config */
     protected $config;
 
     /**
      * ArticleService constructor.
-     * @param ORM    $orm
-     * @param Config $config
+     * @param DbService $orm
+     * @param Config    $config
      */
-    public function __construct(ORM $orm, Config $config)
+    public function __construct(DbService $orm, Config $config)
     {
         $this->orm    = $orm;
         $this->config = $config;

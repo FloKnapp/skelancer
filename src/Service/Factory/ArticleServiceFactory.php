@@ -8,7 +8,7 @@ namespace App\Service\Factory;
 
 use App\Service\ArticleService;
 use Faulancer\Service\Config;
-use Faulancer\Service\ORM;
+use Faulancer\Service\DbService;
 use Faulancer\ServiceLocator\FactoryInterface;
 use Faulancer\ServiceLocator\ServiceLocatorInterface;
 
@@ -20,8 +20,8 @@ class ArticleServiceFactory implements FactoryInterface
 
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var ORM $orm */
-        $orm = $serviceLocator->get(ORM::class);
+        /** @var DbService $orm */
+        $orm = $serviceLocator->get(DbService::class);
 
         /** @var Config $config */
         $config = $serviceLocator->get(Config::class);

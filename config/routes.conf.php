@@ -49,6 +49,25 @@ return [
         'method'     => 'GET',
         'action'     => 'userLogout',
         'controller' => \App\Controller\WebsiteController::class
+    ],
+    'userRegister' => [
+        'path'       => '/user/register',
+        'method'     => 'GET',
+        'action'     => 'userLogout',
+        'controller' => \App\Controller\WebsiteController::class
+    ],
+
+    // Restful routes
+
+    'rest' => [
+
+        'testRoute' => [
+
+            'path'       => '/api/v1/test',
+            'controller' => \App\Controller\ApiController::class
+
+        ]
+
     ]
 
 ];
