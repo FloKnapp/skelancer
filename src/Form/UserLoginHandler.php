@@ -8,7 +8,7 @@ namespace App\Form;
 
 use App\Entity\UserEntity;
 use Faulancer\Form\AbstractFormHandler;
-use Faulancer\Service\Authenticator;
+use Faulancer\Service\AuthenticatorService;
 
 /**
  * Class UserLoginHandler
@@ -26,15 +26,14 @@ class UserLoginHandler extends AbstractFormHandler
         $user->login    = $this->getFormData('text/login');
         $user->password = $this->getFormData('text/password');
 
-        /** @var Authenticator $authenticator */
-        $authenticator = $this->getServiceLocator()->get(Authenticator::class);
+        /** @var AuthenticatorService $authenticator */
+        $authenticator = $this->getServiceLocator()->get(AuthenticatorService::class);
         $authenticator->redirectAfterAuthentication('/');
         $loggedIn = $authenticator->loginUser($user);
 
         if ($loggedIn === false) {
             $this->redirect('/user/login');
         }
-
 
     }
 

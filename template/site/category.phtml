@@ -4,7 +4,7 @@
  * @var \App\Entity\CategoryEntity  $category
  */
 ?>
-<?php $this->parentTemplate('/layout.phtml'); ?>
+<?php $this->parentTemplate('/layout_full.phtml'); ?>
 
 <?php $this->block('title'); ?>
 Category <?= $category->name; ?>
@@ -16,7 +16,7 @@ Category <?= $category->name; ?>
 
 <?php foreach ($articles as $article): ?>
 
-    <a href="<?= $this->route('article', [$article->id]) ?>"><?= $article->title; ?></a><br />
+    <a class="box-item" href="<?= $this->route('article', [$article->id]) ?>"><?= $article->title; ?></a>
 
 <?php endforeach; ?>
 

@@ -1,15 +1,22 @@
 <menu id="menuContainer">
     <div class="mainWrapper">
-    <ul>
-        <li><a href="<?= $this->route('homepage'); ?>">Homepage</a></li>
-        <li><a href="<?= $this->route('categories'); ?>">Categories</a></li>
-        <li><a href="<?= $this->route('contact'); ?>">Contact</a></li>
-    </ul>
-    <?php if ($this->user()->isLoggedIn()): ?>
+        <div class="left">
+            <ul>
+                <li><a href="<?= $this->route('homepage'); ?>">Homepage</a></li>
+                <li><a href="<?= $this->route('categories'); ?>">Categories</a></li>
+                <li><a href="<?= $this->route('contact'); ?>">Contact</a></li>
+            </ul>
+        </div>
+    <?php if ($this->user()->isLoggedIn()) { ?>
         <div class="right">
             <a href="<?= $this->route('userLogout'); ?>">Logout (<?= $this->user()->get()->login; ?>)</a>
         </div>
-    <?php endif; ?>
+    <?php } else { ?>
+        <div class="right">
+            <a class="left" href="<?= $this->route('userLogin'); ?>">Login</a>
+            <a class="left" href="<?= $this->route('userRegister'); ?>">Register</a>
+        </div>
+    <?php } ?>
 
     <div class="clear-both"></div>
     </div>

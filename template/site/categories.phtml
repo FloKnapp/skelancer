@@ -3,7 +3,7 @@
  * @var \App\Entity\CategoryEntity[] $categories
  * @var \App\Entity\CategoryEntity   $category
  */ ?>
-<?php $this->parentTemplate('/layout.phtml'); ?>
+<?php $this->parentTemplate('/layout_full.phtml'); ?>
 
 <?php $this->block('title'); ?>
 Categories
@@ -15,7 +15,7 @@ Categories
 
     <?php foreach ($categories as $category): ?>
 
-        <a href="<?= $this->route('category', [$category->id]) ?>"><?= $category->name; ?></a><br />
+        <a class="box-item" href="<?= $this->route('category', [$category->id]) ?>"><?= $category->name; ?></a></div>
 
     <?php endforeach; ?>
 

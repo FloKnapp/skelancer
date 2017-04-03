@@ -11,6 +11,11 @@ html, body {
     word-spacing: 0.02em;
     line-height: 1.5em;
     background: #303030;
+    text-align: justify;
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
 .mainWrapper {
@@ -73,7 +78,7 @@ header div span {
 }
 
 #menuContainer a {
-    display: block;
+    display: inline-block;
     padding: 8px 10px;
     margin: 0 10px;
     color: inherit;
@@ -142,21 +147,79 @@ header div span {
     opacity: 0;
 }
 
-#mainContent article {
-    padding: 10px;
+#mainInfo .stage.block {
+    display: block;
+    width: 190px;
+    height: 80px;
+    background: #252525;
+    margin: 25px 4px 10px 4px;
     float: left;
-    max-width: 60%;
+    text-align: center;
+    padding-top: 20px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    border: 1px solid #505050;
+    cursor: help;
+    position: relative;
+}
+
+#mainInfo .stage.block .further-information {
+    position: absolute;
+    transition: all 0.3s;
+    width: 100%;
+    background: #252525;
+    border: 1px solid #505050;
+    border-top: none;
+    left: -1px;
+    text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+#mainInfo .stage.block .further-information ul {
+    margin: 10px 0 10px 10px;
+    padding: 0;
+    list-style: none;
+}
+
+#mainInfo .stage.block .further-information ul li {
+    margin: 0;
+    padding: 0;
+}
+#mainInfo .stage.block .further-information ul li:before {
+    content: "\f061";
+    font-family: "FontAwesome", serif;
+    margin-left: 0;
+    margin-right: 5px;
+    font-size: 0.7em;
+    float: left;
+}
+
+#mainInfo .stage.block:hover .further-information {
+    max-height: 500px;
+}
+
+#mainInfo .stage.block .text {
+    display: block;
+}
+
+#mainInfo .stage.block i {
+    color: yellowgreen;
+}
+
+#mainContent article {
+    float: left;
+    max-width: 65%;
     font-size: 1.1em;
 }
 
 #mainContent aside {
-    padding: 10px;
     float: right;
     max-width: 30%;
 }
 
 footer {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 footer .cell {
@@ -325,6 +388,26 @@ button:hover:before {
     border-top: 1px solid #606060;
     padding: 10px;
     margin: 0;
+}
+
+.box-item {
+    display: block;
+    padding: 15px 30px;
+    float: left;
+    background: #353535;
+    margin-right: 10px;
+    border: 1px solid #404040;
+    border-bottom: 1px solid #505050;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+.box-item:hover {
+    background: #404040;
+}
+
+.box-item:active {
+    background: #202020;
 }
 
 .error-msg {
