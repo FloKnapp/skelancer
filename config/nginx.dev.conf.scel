@@ -1,0 +1,27 @@
+server {
+
+    listen 80;
+    server_name skelancer.de www.skelancer.de;
+
+    root /usr/share/nginx/vhosts/skelancer/public;
+
+    index index.php;
+
+    # Remove trailing slash from uri
+    rewrite ^/(.*)/$ /$1 permanent;
+
+    # Always point to index.php
+    location / {
+    try_files $uri $uri/ /index.php;
+    }
+
+    # Configure php-fpm
+    location ~ \.php$ {
+        fastcgi_pass   unix:/run/php-fpm/php-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  APPLICATION_ENV development;
+        fastcgi_param  SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+
+}

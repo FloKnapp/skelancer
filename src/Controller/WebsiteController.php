@@ -110,7 +110,7 @@ class WebsiteController extends Controller
     private function setDefaultAssets()
     {
         $this->getView()->addScript('/js/namespace.js');
-        $this->getView()->addScript('/js/slide.js');
+        //$this->getView()->addScript('/js/slide.js');
         $this->getView()->addStylesheet('/css/font-awesome.min.css');
         $this->getView()->addStylesheet('/css/main.css');
 

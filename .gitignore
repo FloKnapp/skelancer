@@ -2,5 +2,7 @@
 /vendor/
 /.idea/*
 
+/config/nginx.dev.conf
+
 /composer.phar
 /composer.lock
